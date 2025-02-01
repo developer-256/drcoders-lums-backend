@@ -1,12 +1,5 @@
 //prettier-ignore
-import { Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  OneToMany,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Entity,PrimaryGeneratedColumn,Column,ManyToOne,OneToMany,CreateDateColumn,UpdateDateColumn,} from 'typeorm';
 
 @Entity()
 export class User {

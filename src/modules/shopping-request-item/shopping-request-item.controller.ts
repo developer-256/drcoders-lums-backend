@@ -1,11 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ShoppingRequestItemService } from './shopping-request-item.service';
 import { CreateShoppingRequestItemDto } from './dto/create-shopping-request-item.dto';
 import { UpdateShoppingRequestItemDto } from './dto/update-shopping-request-item.dto';
 
 @Controller('shopping-request-item')
 export class ShoppingRequestItemController {
-  constructor(private readonly shoppingRequestItemService: ShoppingRequestItemService) {}
+  constructor(
+    private readonly shoppingRequestItemService: ShoppingRequestItemService,
+  ) {}
 
   @Post()
   create(@Body() createShoppingRequestItemDto: CreateShoppingRequestItemDto) {
@@ -23,8 +33,14 @@ export class ShoppingRequestItemController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateShoppingRequestItemDto: UpdateShoppingRequestItemDto) {
-    return this.shoppingRequestItemService.update(+id, updateShoppingRequestItemDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateShoppingRequestItemDto: UpdateShoppingRequestItemDto,
+  ) {
+    return this.shoppingRequestItemService.update(
+      +id,
+      updateShoppingRequestItemDto,
+    );
   }
 
   @Delete(':id')

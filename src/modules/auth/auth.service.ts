@@ -43,7 +43,7 @@ export class AuthService {
   // Google  login
 
   async googleLogin(email: string) {
-    let user = await this.userService.findByEmail(email);
+    const user = await this.userService.findByEmail(email);
 
     if (!user) {
       throw NotFoundException;
