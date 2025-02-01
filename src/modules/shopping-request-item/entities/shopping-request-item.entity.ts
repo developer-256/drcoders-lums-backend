@@ -1,13 +1,19 @@
 import { ShoppingRequest } from 'src/modules/shopping-request/entities/shopping-request.entity';
-import { Entity, PrimaryGeneratedColumn, ManyToOne, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  Column,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class ShoppingRequestItem {
   @PrimaryGeneratedColumn()
   itemID: number;
 
-  @ManyToOne(() => ShoppingRequest, (request) => request.requestID)
-  request: ShoppingRequest;
+  @Column()
+  request_id: number;
 
   @Column()
   itemName: string;
@@ -20,4 +26,8 @@ export class ShoppingRequestItem {
 
   @Column({ type: 'decimal' })
   priceEstimate: number;
+
+  @ManyToOne(() => ShoppingRequest, (request) => request.requestID)
+  @JoinColumn({ name: 'request_id' })
+  request: ShoppingRequest;
 }

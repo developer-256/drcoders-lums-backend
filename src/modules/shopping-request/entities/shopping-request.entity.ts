@@ -6,15 +6,13 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  JoinColumn,
 } from 'typeorm';
 
 @Entity()
 export class ShoppingRequest {
   @PrimaryGeneratedColumn()
   requestID: number;
-
-  @ManyToOne(() => User, (user) => user.userID)
-  buyer: User;
 
   @Column({
     type: 'enum',
@@ -34,4 +32,7 @@ export class ShoppingRequest {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @ManyToOne(() => User, (user) => user.userID)
+  buyer: User;
 }

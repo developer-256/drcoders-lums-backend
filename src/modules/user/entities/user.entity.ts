@@ -1,5 +1,5 @@
-import {
-  Entity,
+//prettier-ignore
+import { Entity,
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
@@ -19,16 +19,16 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  @Column()
+  @Column({ nullable: true, default: null })
   password: string;
 
-  @Column({ type: 'enum', enum: ['BUYER', 'SHOPPER'] })
+  @Column({ type: 'enum', enum: ['BUYER', 'SHOPPER', 'ADMIN'] })
   role: string;
 
-  @Column()
+  @Column({ nullable: true, default: null })
   phone: string;
 
-  @Column()
+  @Column({ nullable: true, default: null })
   address: string;
 
   @Column({ type: 'decimal', default: 0 })
